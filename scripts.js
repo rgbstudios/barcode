@@ -45,4 +45,11 @@ function downloadImg() {
   link.click();
 }
 
-//copy link to your barcode
+function copyUrl() {
+    let tmp = $('<input type="text">').appendTo(document.body);
+    tmp.val(window.location.href);
+    tmp.select();
+    document.execCommand('copy');
+    tmp.remove();
+	//todo: display toast for copied sucessfully
+}

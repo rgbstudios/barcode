@@ -23,25 +23,37 @@
 <link rel="stylesheet" type="text/css" href="styles.css">
 <script src="scripts.js"></script>
 
-<h3>Barcode Generator</h3>
+<h3>Barcode Generator
+<button onclick="copyUrl()" title="Copy link to your barcode" class="btn btn-default btn-sm"><i class="fas fa-copy"></i></button>
+</h3>
 <label>Enter text below to be entered into the barcode:</label>
 
 
-<input id="input" placeholder="Enter text for your barcode..." class="form-control" type="text">
+<input id="input" maxlength="500" placeholder="Enter text for your barcode..." class="form-control" type="text">
 
 <p id="nodata" class="text-danger">No data available</p>
 <br>
 
 
-<input id="showLabel" type="checkbox" >
+<input id="showLabel" checked="true" type="checkbox" >
 <label for="showLabel">Barcode label</label>
 <br>
 <canvas id="output"></canvas>
 
+
+
 <br>
 <button onclick="downloadImg()" class="btn btn-default btn-lg"><i class="fas fa-download"></i> Download Image</button>
 <br><br>
-<p class="text-info">Right click the image and click "Copy image" to copy it.<br>Barcodes in code128 format.</p>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  Right click the image and click "Copy image" to copy it.<br>Barcodes in code128 format.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
 
 <a id="downloadLink"></a>
 
