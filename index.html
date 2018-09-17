@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Barcode Generator</title>
+<meta charset="utf-8">
+<meta name="title=" content="Barcode Generator">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Use Barcode Generator to generate a barcode for any text, then save or share the image">
+<meta name="keywords" content="barcode, barcode generator, generator, bar code, bar code generator, code generator, code creator, create">
+<link rel="icon" href="icon.png" type="image/png">
+<meta id="theme1" name="theme-color" content="#ccc">
+<meta id="theme2" name="msapplication-navbutton-color" content="#ccc">
+<meta id="theme3" name="apple-mobile-web-app-status-bar-style" content="#ccc">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script src="scripts.js"></script>
+
+<h3>Barcode Generator</h3>
+<label>Enter text below to be entered into the barcode:</label>
+
+
+<input id="input" placeholder="Enter text for your barcode..." class="form-control" type="text">
+
+<p id="nodata" class="text-danger">No data available</p>
+<br>
+
+
+<input id="showLabel" type="checkbox" >
+<label for="showLabel">Barcode label</label>
+<br>
+<canvas id="output"></canvas>
+
+<br>
+<button onclick="downloadImg()" class="btn btn-default btn-lg"><i class="fas fa-download"></i> Download Image</button>
+<br><br>
+<p class="text-info">Right click the image and click "Copy image" to copy it.<br>Barcodes in code128 format.</p>
+
+<a id="downloadLink"></a>
+
+</head>
+<body>
+
+
+</body>
+</html>
