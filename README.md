@@ -1,6 +1,6 @@
 # Barcode Generator - RGB Studios
 
-<img src="icon.png">
+<img src="img/logo.svg" width="64px">
 
 Use Barcode Generator to generate a barcode for any text, then save or share the image
 
@@ -8,7 +8,7 @@ Use Barcode Generator to generate a barcode for any text, then save or share the
 
 <hr>
 
-1.0.0
+1.0.1
 
 by Justin Golden for RGB Studios
 
