@@ -39,17 +39,17 @@ function makeCode() {
 }
 
 function downloadImg() {
-  let link = document.getElementById('downloadLink');
-  link.href = document.getElementById('output').toDataURL();
-  link.download = 'barcode-' + $('#input').val() + '.png';
-  link.click();
+	let link = document.getElementById('downloadLink');
+	link.href = document.getElementById('output').toDataURL();
+	link.download = 'barcode-' + $('#input').val() + '.png';
+	link.click();
 }
 
 function copyUrl() {
-    let tmp = $('<input type="text">').appendTo(document.body);
-    tmp.val(window.location.href);
-    tmp.select();
-    document.execCommand('copy');
-    tmp.remove();
+	let tmp = $('<input type="text">').appendTo(document.body);
+	tmp.val(window.location.href);
+	tmp.select();
+	document.execCommand('copy');
+	tmp.remove();
 	//todo: display toast for copied sucessfully
 }

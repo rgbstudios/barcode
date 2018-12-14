@@ -2,17 +2,24 @@
 	text-align: center !important;
 }
 body {
-	margin: 20px;
+	margin: 40px;
 }
 ::-moz-selection {
-  background: #ccc;
+	background: #999;
+	color: #fff;
 }
 ::selection {
-  background: #ccc;
+	background: #999;
+	color: #fff;
 }
-
-
-
 #downloadLink, #nodata {
 	display: none;
+}
+#showLabel, label[for=showLabel] {
+	cursor: pointer;
+	font-size: 120%;
+}
+.alert {
+	background-color: #fff;
+	border-width: 2px;
 }
