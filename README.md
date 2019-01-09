@@ -1,6 +1,8 @@
-# Barcode Generator - RGB Studios 
+# [Barcode Generator](https://rgbstudios.org/barcode) - RGB Studios 
 
 <img src="img/logo.svg" width="64px">
+
+### [rgbstudios.org/barcode](https://rgbstudios.org/barcode)
 
 ### About
 
@@ -8,17 +10,15 @@ Use Barcode Generator to generate a barcode for any text, then save or share the
 
 You can also share the link to your barcode,with your text embedded in the link.
 
-<a href="https://rgbstudios.org/barcode">rgbstudios.org/barcode</a>
+### Credit
 
 Made with [JS Barcode](https://github.com/lindell/JsBarcode)
 
-This Repository: https://github.com/rgbstudios/barcode
-
 <hr>
 
-1.0.2
+Version 1.0.2
 
-by [Justin Golden](https://justingolden21.github.io) for [RGB Studios](https://rgbstudios.org)
+**by [Justin Golden](https://justingolden21.github.io) for [RGB Studios](https://rgbstudios.org)**
 
 *RGB Studios Homepage: https://rgbstudios.org*
 
