@@ -1,0 +1,11 @@
+======== To Do: ========
+
+
+
+======== Maybe: ========
+
+- more types of barcodes
+
+- info modal about barcodes
+
+- settings for size and color
