@@ -1,6 +1,5 @@
 //https://github.com/lindell/JsBarcode
 $(function() {
-
 	let url = new URL(window.location.href);
 	let q = url.searchParams.get('q');
 	$('#input').val(q || 'hello world');
@@ -26,16 +25,15 @@ function makeCode() {
 
 	$('#output').JsBarcode($('#input').val(), 
 		{
-			format: "code128",
-			lineColor: "#000",
-			width:2,
-			height:100,
+			format: 'code128',
+			lineColor: '#000',
+			width: 2,
+			height: 100,
 			displayValue: $('#showLabel').is(':checked')
 		}
 	);
 
 	history.replaceState({}, '', '?q=' + $('#input').val() );
-
 }
 
 function downloadImg() {
