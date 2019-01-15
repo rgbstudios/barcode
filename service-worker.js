@@ -1,3 +1,5 @@
+//https://serviceworke.rs/strategy-network-or-cache_service-worker_doc.html
+
 var CACHE = 'network-or-cache';
 
 // On install, cache some resource.

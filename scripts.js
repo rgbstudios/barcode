@@ -1,9 +1,3 @@
-
-
-
-
-
-
 //https://github.com/lindell/JsBarcode
 $(function() {
 	let url = new URL(window.location.href);
