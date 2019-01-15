@@ -17,19 +17,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" async>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles.css" async>
 <script src="scripts.js"></script>
 
 </head>
 <body>
 
 <h3><img src="img/icon.svg" width="48px" alt="" > Barcode Generator
-<button onclick="copyUrl()" title="Copy link to your barcode" class="btn"><i class="fas fa-link"></i></button>
+<button onclick="copyUrl()" title="Copy link to your barcode" class="btn btn-dark"><i class="fas fa-link"></i></button>
 </h3>
 <label for="input">Enter text below to be entered into the barcode:</label>
 <input id="input" maxlength="500" placeholder="Enter text for your barcode..." class="form-control" type="text">
@@ -44,7 +44,7 @@
 <canvas id="output"></canvas>
 <br>
 
-<button onclick="downloadImg()" class="btn btn-lg"><i class="fas fa-download"></i> Download Image</button>
+<button onclick="downloadImg()" class="btn btn-lg btn-dark"><i class="fas fa-download"></i> Download Image</button>
 <br><br>
 
 <div class="alert alert-info alert-dismissible fade show" role="alert">
