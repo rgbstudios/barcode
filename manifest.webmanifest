@@ -4,6 +4,7 @@
 	"start_url": "index.html",
 	"display": "standalone",
 	"background_color": "#ccc",
+	"theme_color": "#ccc",
 	"description": "Use Barcode Generator to generate a barcode for any text, then save or share the image",
 	"lang": "en-US",
 	"icons": [{
