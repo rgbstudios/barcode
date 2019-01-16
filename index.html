@@ -16,6 +16,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" async>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
@@ -43,23 +44,56 @@ if('serviceWorker' in navigator) {
 <h3>
 	<img src="img/icon.svg" width="48px" alt="">
 	Barcode Generator
-	<button onclick="copyUrl()" title="Copy link to your barcode" class="btn btn-dark">
+	<button id="copyBtn" class="btn btn-dark">
 		<i class="fas fa-link"></i>
 	</button>
 </h3>
 
 <label for="input">Enter text below to be entered into the barcode:</label>
-<input id="input" maxlength="500" placeholder="Enter text for your barcode..." class="form-control" type="text">
+<input id="input" maxlength="100" placeholder="Enter text for your barcode..." class="form-control" type="text">
 
-<p id="nodata" class="text-danger">No data available</p>
+<p id="nodata" class="text-danger">Invalid data</p>
 
 <br>
+
+<div id="format" class="dropdown">
+	<label>Format:</label>
+	<button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span id="formatSpan">CODE128</span>
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	<a class="dropdown-item active">CODE128</a>
+	<a class="dropdown-item">CODE128A</a>
+	<a class="dropdown-item">CODE128B</a>
+	<a class="dropdown-item">CODE128C</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">EAN13</a>
+	<a class="dropdown-item">UPC</a>
+	<a class="dropdown-item">EAN8</a>
+	<a class="dropdown-item">EAN5</a>
+	<a class="dropdown-item">EAN2</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">CODE39</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">ITF14</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">MSI</a>
+	<a class="dropdown-item">MSI10</a>
+	<a class="dropdown-item">MSI11</a>
+	<a class="dropdown-item">MSI1010</a>
+	<a class="dropdown-item">MSI1110</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">pharmacode</a>
+	<div class="dropdown-divider"></div>
+	<a class="dropdown-item">codabar</a>
+	</div>
+</div>
 
 <input id="showLabel" checked="true" type="checkbox" tabindex="-1">
-<i class="fas fa-check-square"></i>
+<i></i>
 <label for="showLabel">Display barcode label</label>
 
-<br>
+<hr>
 
 <canvas id="output"></canvas>
 
@@ -71,9 +105,8 @@ if('serviceWorker' in navigator) {
 
 <br><br>
 
-<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
 	<i class="fas fa-info-circle"></i> Right click the image and click "Copy image" to copy it.
-	<br>Barcodes in code128 format.
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
 	</button>

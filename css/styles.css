@@ -16,10 +16,18 @@ body {
 	display: none;
 }
 label {
-	cursor: pointer;
 	font-size: 120%;
+}
+label[for=showLabel] {
+	cursor: pointer;
 }
 .alert {
 	background-color: #fff;
 	border-width: 3px;
+}
+.dropdown {
+	cursor: pointer;
+}
+.dropdown-item.active, .dropdown-item:active {
+	color: #fff !important;
 }

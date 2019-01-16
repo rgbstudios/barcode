@@ -1,0 +1,14 @@
+
+================adding color pickers:================
+
+onload function:
+
+$('.color').colorPicker({opacity:false});
+
+html links:
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinyColorPicker/1.1.1/jqColorPicker.min.js"></script>
+
+html element:
+
+<input class="form-control color" value="#FFFFFF">

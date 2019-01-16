@@ -1,5 +1,8 @@
 function setupCheckboxes() {
 	$('input[type=checkbox]').change(function() {
-		$(this).next().toggleClass('fas').toggleClass('far').toggleClass('fa-check-square').toggleClass('fa-square');
+		if($(this).prop('checked') )
+			$(this).next().addClass('fas').addClass('fa-check-square').removeClass('far').removeClass('fa-square');
+		else
+			$(this).next().removeClass('fas').removeClass('fa-check-square').addClass('far').addClass('fa-square');
 	});
 }
