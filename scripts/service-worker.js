@@ -27,8 +27,10 @@ function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
       'index.html',
-      'styles.css',
-      'scripts.js'
+      'css/styles.css',
+      'css/checkbox.css',
+      'scripts/scripts.js',
+      'scripts/checkbox.js'
     ]);
   });
 }

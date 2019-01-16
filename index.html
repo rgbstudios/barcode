@@ -22,13 +22,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="styles.css" async>
-<script src="scripts.js"></script>
+<link rel="stylesheet" type="text/css" href="css/styles.css" async>
+<link rel="stylesheet" type="text/css" href="css/checkbox.css" async>
+<script src="scripts/scripts.js"></script>
+<script src="scripts/checkbox.js"></script>
 
 <script>
 //https://codelabs.developers.google.com/codelabs/add-to-home-screen/#5
 if('serviceWorker' in navigator) {
-	navigator.serviceWorker.register('service-worker.js')
+	navigator.serviceWorker.register('scripts/service-worker.js')
 		.then(function(reg){
 			console.log("Service worker successfully registered");
 	}).catch(function(err) {
@@ -49,8 +51,12 @@ if('serviceWorker' in navigator) {
 <p id="nodata" class="text-danger">No data available</p>
 <br>
 
-<input id="showLabel" checked="true" type="checkbox">
-<label for="showLabel">Display barcode label</label>
+<label class="form-check-label">
+<input id="showLabel" checked="true" type="checkbox" tabindex="-1">
+<i class="fas fa-check-square"></i>
+Display barcode label
+</label>
+
 <br>
 
 <canvas id="output"></canvas>
@@ -59,7 +65,7 @@ if('serviceWorker' in navigator) {
 <button onclick="downloadImg()" class="btn btn-lg btn-dark"><i class="fas fa-download"></i> Download Image</button>
 <br><br>
 
-<div class="alert alert-info alert-dismissible fade show" role="alert">
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
 	<i class="fas fa-info-circle"></i> Right click the image and click "Copy image" to copy it.<br>Barcodes in code128 format.
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
