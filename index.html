@@ -12,14 +12,12 @@
 <meta id="theme1" name="theme-color" content="#ccc">
 <meta id="theme2" name="msapplication-navbutton-color" content="#ccc">
 <meta id="theme3" name="apple-mobile-web-app-status-bar-style" content="#ccc">
-
 <link rel="manifest" href="manifest.webmanifest">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" async>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/styles.css" async>
@@ -42,31 +40,40 @@ if('serviceWorker' in navigator) {
 </head>
 <body>
 
-<h3><img src="img/icon.svg" width="48px" alt="" > Barcode Generator
-<button onclick="copyUrl()" title="Copy link to your barcode" class="btn btn-dark"><i class="fas fa-link"></i></button>
+<h3>
+	<img src="img/icon.svg" width="48px" alt="">
+	Barcode Generator
+	<button onclick="copyUrl()" title="Copy link to your barcode" class="btn btn-dark">
+		<i class="fas fa-link"></i>
+	</button>
 </h3>
+
 <label for="input">Enter text below to be entered into the barcode:</label>
 <input id="input" maxlength="500" placeholder="Enter text for your barcode..." class="form-control" type="text">
 
 <p id="nodata" class="text-danger">No data available</p>
+
 <br>
 
-<label class="form-check-label">
 <input id="showLabel" checked="true" type="checkbox" tabindex="-1">
 <i class="fas fa-check-square"></i>
-Display barcode label
-</label>
+<label for="showLabel">Display barcode label</label>
 
 <br>
 
 <canvas id="output"></canvas>
+
 <br>
 
-<button onclick="downloadImg()" class="btn btn-lg btn-dark"><i class="fas fa-download"></i> Download Image</button>
+<button onclick="downloadImg()" class="btn btn-lg btn-dark">
+	<i class="fas fa-download"></i> Download Image
+</button>
+
 <br><br>
 
 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-	<i class="fas fa-info-circle"></i> Right click the image and click "Copy image" to copy it.<br>Barcodes in code128 format.
+	<i class="fas fa-info-circle"></i> Right click the image and click "Copy image" to copy it.
+	<br>Barcodes in code128 format.
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
 	</button>
