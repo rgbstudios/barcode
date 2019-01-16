@@ -48,6 +48,11 @@ $(function() {
 		setTimeout(function(){$('#copyBtn').popover('hide')}, 2000);
 	});
 
+	// If on mobile, don't display right click alert
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		$('#rightClickAlert').css('display','none');
+	}
+
 });
 
 function makeCode() {
