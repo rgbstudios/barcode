@@ -31,3 +31,34 @@ label[for=showLabel] {
 .dropdown-item.active, .dropdown-item:active {
 	color: #fff !important;
 }
+.cp-color-picker {
+	z-index: 1051 !important; /* Bootstrap modal is 1050 */
+}
+
+/* Range inputs */
+.form-control-range {
+	-webkit-appearance: none;
+	height: 15px;
+	border-radius: 5px;
+	background: #ccc;
+}
+.form-control-range:hover {
+	background: #999;
+}
+.form-control-range::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%; 
+	background: #333;
+	cursor: pointer;
+}
+.form-control-range::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #333;
+	cursor: pointer;
+	border: 0;
+}

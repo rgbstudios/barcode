@@ -15,11 +15,12 @@
 <link rel="manifest" href="manifest.webmanifest">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" async>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinyColorPicker/1.1.1/jqColorPicker.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/styles.css" async>
 <link rel="stylesheet" type="text/css" href="css/checkbox.css" async>
@@ -42,14 +43,10 @@ if('serviceWorker' in navigator) {
 <body>
 
 <h3>
-	<img src="img/icon.svg" width="48px" alt="">
-	Barcode Generator
-	<button id="copyBtn" class="btn btn-dark" aria-label="copy link to your barcode">
-		<i class="fas fa-link"></i>
-	</button>
+	Barcode <img src="img/icon.svg" width="48px" alt=""> Generator
 </h3>
 
-<label for="input">Enter text below to be entered into the barcode:</label>
+<label for="input">Barcode text:</label>
 <input id="input" maxlength="100" placeholder="Enter text for your barcode..." class="form-control" type="text">
 
 <p id="nodata" class="text-danger">Invalid data</p>
@@ -93,14 +90,24 @@ if('serviceWorker' in navigator) {
 <i></i>
 <label for="showLabel">Display barcode label</label>
 
+<br>
+
+<button class="btn btn-dark" data-toggle="modal" data-target="#settingsModal">
+	<i class="fas fa-cog"></i> Settings
+</button>
+
 <hr>
 
-<canvas id="output"></canvas>
+<canvas class="output"></canvas>
 
 <br>
 
-<button onclick="downloadImg()" class="btn btn-lg btn-dark">
-	<i class="fas fa-download"></i> Download Image
+<button id="downloadBtn" class="btn btn-lg btn-dark">
+	<i class="fas fa-download"></i> Download
+</button>
+
+<button id="copyBtn" class="btn btn-lg btn-dark" aria-label="copy link to your barcode">
+	<i class="fas fa-link"></i> Copy
 </button>
 
 <br><br>
@@ -113,6 +120,75 @@ if('serviceWorker' in navigator) {
 </div>
 
 <a id="downloadLink"></a>
+
+<div id="settingsModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-cog"></i> Settings</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<h5>Colors:</h5>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Lines:</label>
+					</div>
+					<div class="col-sm-8">
+						<input id="lineColor" class="form-control color">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Background:</label>
+					</div>
+					<div class="col-sm-8">
+						<input id="backgroundColor" class="form-control color">
+					</div>
+				</div>
+
+				<hr>
+
+				<h5>Dimensions:</h5>
+				<br>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Width: <span id="widthSpan"></span> </label>
+					</div>
+					<div class="col-sm-8">
+						<input id="widthRange" type="range" class="form-control-range" min="1" max="4" step="1">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Height: <span id="heightSpan"></span> </label>
+					</div>
+					<div class="col-sm-8">
+						<input id="heightRange" type="range" class="form-control-range" min="25" max="250" step="25">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Margin: <span id="marginSpan"></span> </label>
+					</div>
+					<div class="col-sm-8">
+						<input id="marginRange" type="range" class="form-control-range" min="0" max="40" step="5">
+					</div>
+				</div>
+				
+				<hr>
+
+				<h5>Preview:</h5>
+				<canvas class="output"></canvas>
+
+				<hr>
+
+				<button id="resetBtn" class="btn btn-dark"><i class="fas fa-redo-alt"></i> Reset Settings</button>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 </body>
 </html>

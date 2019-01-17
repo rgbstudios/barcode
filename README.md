@@ -14,6 +14,8 @@ You can also share the link to your barcode,with your text embedded in the link.
 
 Made with [JS Barcode](https://github.com/lindell/JsBarcode)
 
+Icons from [Font Awesome](https://fontawesome.com/)
+
 <hr>
 
 Version 1.0.2
