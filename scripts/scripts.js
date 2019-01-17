@@ -39,7 +39,8 @@ $(function() {
 
 	// Copy Button
 	$('#copyBtn').popover({
-		content: 'Copied link to your barcode'
+		content: 'Copied link to your barcode',
+		placement: 'bottom'
 	});
 	$('#copyBtn').click(function() {
 		makeCode();
