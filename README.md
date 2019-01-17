@@ -1,6 +1,4 @@
-# [Barcode Generator](https://rgbstudios.org/barcode) - RGB Studios 
-
-<img src="img/logo.svg" width="64px">
+# Barcode <img src="img/logo.svg" width="64px"> Generator - RGB Studios 
 
 ### [rgbstudios.org/barcode](https://rgbstudios.org/barcode)
 
