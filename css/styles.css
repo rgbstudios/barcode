@@ -60,4 +60,5 @@ label[for=showLabel] {
 	border-radius: 50%;
 	background: #333;
 	cursor: pointer;
+	border: 0;
 }
