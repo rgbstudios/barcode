@@ -37,8 +37,6 @@ Color picker from [Tiny Color Picker](https://github.com/PitPik/tinyColorPicker)
 
 <hr>
 
-Version 1.0.2
-
 **by [Justin Golden](https://justingolden21.github.io) for [RGB Studios](https://rgbstudios.org)**
 
 *RGB Studios Homepage: https://rgbstudios.org*
