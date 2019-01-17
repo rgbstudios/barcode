@@ -1,11 +1,25 @@
 ======== To Do: ========
 
+- make arrow keys work with dropdown, make tab work with checkbox
 
+- check if color is valid first
+
+- popover is going over input and can't get rid of it... just make an alert myself?
 
 ======== Maybe: ========
 
-- more types of barcodes
+- info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes
 
-- info modal about barcodes
+- info modal with link to github, version number, link to email, link to donate
 
-- settings for size and color
+
+
+- change focus outline color
+
+- make custom accent color (mobile theme color, button color, etc)
+
+
+
+- remove option from url if it's already default option
+
+- use atob() and btoa() to encode all info into shorter url
