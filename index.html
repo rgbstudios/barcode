@@ -46,55 +46,63 @@ if('serviceWorker' in navigator) {
 	Barcode <img src="img/icon.svg" width="48px" alt=""> Generator
 </h3>
 
-<label for="input">Barcode text:</label>
-<input id="input" maxlength="100" placeholder="Enter text for your barcode..." class="form-control" type="text">
+<div class="input-group mt-3">
+	<div class="input-group-prepend">
+		<span class="input-group-text">Barcode text</span>
+	</div>
+	<input id="input" maxlength="100" placeholder="Enter text for your barcode..." class="form-control" type="text" aria-label="Barcode text">
+</div>
 
 <p id="nodata" class="text-danger">Invalid data</p>
 
 <br>
 
-<div id="format" class="dropdown">
-	<label>Format:</label>
-	<button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		<span id="formatSpan">CODE128</span>
-	</button>
-	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	<a class="dropdown-item active">CODE128</a>
-	<a class="dropdown-item">CODE128A</a>
-	<a class="dropdown-item">CODE128B</a>
-	<a class="dropdown-item">CODE128C</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">EAN13</a>
-	<a class="dropdown-item">UPC</a>
-	<a class="dropdown-item">EAN8</a>
-	<a class="dropdown-item">EAN5</a>
-	<a class="dropdown-item">EAN2</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">CODE39</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">ITF14</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">MSI</a>
-	<a class="dropdown-item">MSI10</a>
-	<a class="dropdown-item">MSI11</a>
-	<a class="dropdown-item">MSI1010</a>
-	<a class="dropdown-item">MSI1110</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">pharmacode</a>
-	<div class="dropdown-divider"></div>
-	<a class="dropdown-item">codabar</a>
+<div class="row">
+	<div class="col-md-4 col-sm-6 p-2">
+		<div id="format" class="dropdown">
+			<label>Format:</label>
+			<button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span id="formatSpan">CODE128</span>
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item active">CODE128</a>
+			<a class="dropdown-item">CODE128A</a>
+			<a class="dropdown-item">CODE128B</a>
+			<a class="dropdown-item">CODE128C</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">EAN13</a>
+			<a class="dropdown-item">UPC</a>
+			<a class="dropdown-item">EAN8</a>
+			<a class="dropdown-item">EAN5</a>
+			<a class="dropdown-item">EAN2</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">CODE39</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">ITF14</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">MSI</a>
+			<a class="dropdown-item">MSI10</a>
+			<a class="dropdown-item">MSI11</a>
+			<a class="dropdown-item">MSI1010</a>
+			<a class="dropdown-item">MSI1110</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">pharmacode</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item">codabar</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-sm-6 p-2">
+		<input id="showLabel" checked="true" type="checkbox" tabindex="-1">
+		<i></i>
+		<label for="showLabel">Display barcode label</label>		
+	</div>
+	<div class="col-md-4 col-sm-12 p-2">
+		<button class="btn btn-dark" data-toggle="modal" data-target="#settingsModal">
+			<i class="fas fa-cog"></i> Settings
+		</button>
 	</div>
 </div>
-
-<input id="showLabel" checked="true" type="checkbox" tabindex="-1">
-<i></i>
-<label for="showLabel">Display barcode label</label>
-
-<br>
-
-<button class="btn btn-dark" data-toggle="modal" data-target="#settingsModal">
-	<i class="fas fa-cog"></i> Settings
-</button>
 
 <hr>
 
@@ -102,11 +110,11 @@ if('serviceWorker' in navigator) {
 
 <br>
 
-<button id="downloadBtn" class="btn btn-lg btn-dark">
+<button id="downloadBtn" class="btn btn-dark">
 	<i class="fas fa-download"></i> Download
 </button>
 
-<button id="copyBtn" class="btn btn-lg btn-dark" aria-label="copy link to your barcode">
+<button id="copyBtn" class="btn btn btn-dark" aria-label="copy link to your barcode">
 	<i class="fas fa-link"></i> Copy
 </button>
 

@@ -6,6 +6,8 @@
 
 - popover is going over input and can't get rid of it... just make an alert myself?
 
+- button for link and remove link in url?
+
 ======== Maybe: ========
 
 - info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes

@@ -3,6 +3,7 @@
 }
 body {
 	margin: 40px;
+	margin-top: 20px;
 }
 ::-moz-selection {
 	background: #999;
@@ -33,6 +34,11 @@ label[for=showLabel] {
 }
 .cp-color-picker {
 	z-index: 1051 !important; /* Bootstrap modal is 1050 */
+}
+.input-group-text {
+	background-color: #343a40;
+	border-color: #343a40;
+	color: #fff;
 }
 
 /* Range inputs */
