@@ -100,6 +100,15 @@ function makeCode() {
 	$('#heightSpan').html($('#heightRange').val() );
 	$('#marginSpan').html($('#marginRange').val() );
 
+	// if we have url params, then update them
+	let url = new URL(window.location.href);
+	let f = url.searchParams.get('f');
+	if(f) { // anything other than 'q' because 'q' is kept on resetSettings()
+		addURLParams();
+	}
+}
+
+function addURLParams() {
 	history.replaceState({}, '', '?q=' + $('#input').val() + 
 		'&f=' + $('#formatSpan').html() + 
 		'&t=' + ($('#showLabel').is(':checked')?'1':'0') +
@@ -108,7 +117,11 @@ function makeCode() {
 		'&w=' + $('#widthRange').val() +
 		'&h=' + $('#heightRange').val() +
 		'&m=' + $('#marginRange').val()
-	);
+	);	
+}
+
+function removeURLParams() {
+	window.history.replaceState(null, null, window.location.pathname);
 }
 
 function downloadImg() {
@@ -119,6 +132,9 @@ function downloadImg() {
 }
 
 function copyUrl() {
+	addURLParams();
+
+	// copy url
 	let tmp = $('<input type="text">').appendTo(document.body);
 	tmp.val(window.location.href);
 	tmp.select();
@@ -127,6 +143,8 @@ function copyUrl() {
 }
 
 function resetSettings() {
+	removeURLParams();
+
 	history.replaceState({}, '', '?q=' + $('#input').val() );
 	location.reload();
 }
