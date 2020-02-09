@@ -8,6 +8,8 @@
 
 - button for link and remove link in url?
 
+- clicking checkbox doesn't toggle it, only label works
+
 ======== Maybe: ========
 
 - info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes
@@ -25,3 +27,6 @@
 - remove option from url if it's already default option
 
 - use atob() and btoa() to encode all info into shorter url
+
+- qr codes?
+
