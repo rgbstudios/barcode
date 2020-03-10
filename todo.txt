@@ -1,6 +1,8 @@
 ======== To Do: ========
 
-- make arrow keys work with dropdown, make tab work with checkbox
+- make arrow keys work with dropdown, make tab work with checkbox (can't focus checkbox)
+
+- clicking checkbox doesn't toggle it, only clicking text does
 
 - check if color is valid first
 
@@ -14,15 +16,19 @@
 
 - info modal with link to github, version number, link to email, link to donate
 
-
-
-- change focus outline color
-
-- make custom accent color (mobile theme color, button color, etc)
-
-
-
 - remove option from url if it's already default option
 
 - use atob() and btoa() to encode all info into shorter url
 
+- history list of scanned codes below?
+
+- scan normal barcodes too?
+
+======== Notes: ========
+
+- might need to run "py -m http.server 4000" to host on localhost: 4000 to allow camera permission 
+
+- could make accent color red (#933), use in focus/highlight color and other places, looks good with black
+	problem is, red is associated with warning/danger, so be careful with design
+
+- FIX default open or dont open qr code modal

@@ -9,9 +9,9 @@
 <meta name="description" content="Use Barcode Generator to generate a barcode for any text, then save or share the image">
 <meta name="keywords" content="barcode, barcode generator, generator, bar code, bar code generator, code generator, code creator, create">
 <link rel="icon" href="img/icon.png" type="image/png">
-<meta id="theme1" name="theme-color" content="#ccc">
-<meta id="theme2" name="msapplication-navbutton-color" content="#ccc">
-<meta id="theme3" name="apple-mobile-web-app-status-bar-style" content="#ccc">
+<meta id="theme1" name="theme-color" content="#333">
+<meta id="theme2" name="msapplication-navbutton-color" content="#333">
+<meta id="theme3" name="apple-mobile-web-app-status-bar-style" content="#333">
 <link rel="manifest" href="manifest.webmanifest">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -22,10 +22,12 @@
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinyColorPicker/1.1.1/jqColorPicker.min.js"></script>
 
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="https://cozmo.github.io/jsQR/jsQR.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/styles.css" async>
-<link rel="stylesheet" type="text/css" href="css/checkbox.css" async>
 <script src="scripts/scripts.js"></script>
-<script src="scripts/checkbox.js"></script>
+<script src="scripts/scan.js"></script>
 
 <script>
 //https://codelabs.developers.google.com/codelabs/add-to-home-screen/#5
@@ -60,7 +62,7 @@ if('serviceWorker' in navigator) {
 <div class="row">
 	<div class="col-md-4 col-sm-6 p-2">
 		<div id="format" class="dropdown">
-			<label>Format:</label>
+			<label>Format: &nbsp;</label>
 			<button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span id="formatSpan">CODE128</span>
 			</button>
@@ -93,9 +95,17 @@ if('serviceWorker' in navigator) {
 		</div>
 	</div>
 	<div class="col-md-4 col-sm-6 p-2">
-		<input id="showLabel" checked="true" type="checkbox" tabindex="-1">
+
+<!-- 		<input id="showLabel" checked="true" type="checkbox" tabindex="-1">
 		<i></i>
-		<label for="showLabel">Display barcode label</label>		
+		<label for="showLabel">Display barcode label</label> -->
+
+		<div class="custom-control custom-checkbox">
+			<input id="showLabel" checked="true" type="checkbox" class="custom-control-input">
+			<label class="custom-control-label" for="showLabel">Display barcode label</label>
+		</div>
+
+
 	</div>
 	<div class="col-md-4 col-sm-12 p-2">
 		<button class="btn btn-dark" data-toggle="modal" data-target="#settingsModal">
@@ -113,7 +123,6 @@ if('serviceWorker' in navigator) {
 <button id="downloadBtn" class="btn btn-dark">
 	<i class="fas fa-download"></i> Download
 </button>
-
 <button id="copyBtn" class="btn btn btn-dark" aria-label="copy link to your barcode">
 	<i class="fas fa-link"></i> Copy
 </button>
@@ -126,6 +135,13 @@ if('serviceWorker' in navigator) {
 		<span aria-hidden="true">&times;</span>
 	</button>
 </div>
+
+<button id="QRcodeBtn" class="btn btn-dark" data-toggle="modal" data-target="#QRcodeModal">
+	<i class="fas fa-qrcode"></i> QR Code
+</button>
+<button id="QRcodeScanBtn" class="btn btn-dark" data-toggle="modal" data-target="#QRcodeScanModal">
+	<i class="fas fa-camera"></i> Scan a QR Code
+</button>
 
 <a id="downloadLink"></a>
 
@@ -192,6 +208,55 @@ if('serviceWorker' in navigator) {
 				<hr>
 
 				<button id="resetBtn" class="btn btn-dark"><i class="fas fa-redo-alt"></i> Reset Settings</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="QRcodeModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-qrcode"></i> QR Code</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+
+				<label>Size: <span id="sizeSpan"></span> </label>
+				<input id="sizeRange" type="range" class="form-control-range" min="25" max="400" step="25" value="200">
+
+				<div id="qrcode"></div>
+
+				<button id="QRdownloadBtn" class="btn btn-dark">
+					<i class="fas fa-download"></i> Download
+				</button>
+				<button id="QRcopyBtn" class="btn btn btn-dark" aria-label="copy link to your qr code">
+					<i class="fas fa-link"></i> Copy
+				</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="QRcodeScanModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-qrcode"></i> Scan QR Code</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div id="loadingMessage" class="text-danger">Unable to access video stream <br> (please make sure you have enabled your webcam)</div>
+				<canvas id="canvas" hidden></canvas>
+				<div id="output" hidden>
+					<div id="outputMessage">No QR code detected.</div>
+					<div hidden><b>Data:</b> <span id="outputData"></span></div>
+
+					<button id="QRscanRefreshBtn" class="btn btn btn-dark" aria-label="scan another qr code">
+						<i class="fas fa-redo"></i> Scan Again
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

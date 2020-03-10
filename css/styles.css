@@ -13,6 +13,10 @@ body {
 	background: #999;
 	color: #fff;
 }
+.modal-dialog {
+	width: 90% !important;
+	max-width: none;
+}
 #downloadLink, #nodata {
 	display: none;
 }
@@ -21,6 +25,10 @@ label {
 }
 label[for=showLabel] {
 	cursor: pointer;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+	background-color: #333;
+	border-color: #333;
 }
 .alert {
 	background-color: #fff;
@@ -31,6 +39,7 @@ label[for=showLabel] {
 }
 .dropdown-item.active, .dropdown-item:active {
 	color: #fff !important;
+	background-color: #333 !important;
 }
 .cp-color-picker {
 	z-index: 1051 !important; /* Bootstrap modal is 1050 */
@@ -39,6 +48,9 @@ label[for=showLabel] {
 	background-color: #343a40;
 	border-color: #343a40;
 	color: #fff;
+}
+#qrcode {
+	margin: 20px;
 }
 
 /* Range inputs */
