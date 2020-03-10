@@ -1,8 +1,8 @@
 ======== To Do: ========
 
-- make arrow keys work with dropdown, make tab work with checkbox (can't focus checkbox)
+- upload image to read qr code option (file input)
 
-- clicking checkbox doesn't toggle it, only clicking text does
+- make arrow keys work with dropdown
 
 - check if color is valid first
 
