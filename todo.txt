@@ -1,7 +1,5 @@
 ======== To Do: ========
 
-- upload image to read qr code option (file input)
-
 - make arrow keys work with dropdown
 
 - check if color is valid first

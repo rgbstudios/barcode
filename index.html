@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css" async>
 <script src="scripts/scripts.js"></script>
 <script src="scripts/scan.js"></script>
+<script src="scripts/upload.js"></script>
 
 <script>
 //https://codelabs.developers.google.com/codelabs/add-to-home-screen/#5
@@ -141,6 +142,9 @@ if('serviceWorker' in navigator) {
 </button>
 <button id="QRcodeScanBtn" class="btn btn-dark" data-toggle="modal" data-target="#QRcodeScanModal">
 	<i class="fas fa-camera"></i> Scan a QR Code
+</button>
+<button id="QRcodeUploadBtn" class="btn btn-dark" data-toggle="modal" data-target="#QRcodeUploadModal">
+	<i class="fas fa-image"></i> Upload a QR Code
 </button>
 
 <a id="downloadLink"></a>
@@ -257,6 +261,23 @@ if('serviceWorker' in navigator) {
 						<i class="fas fa-redo"></i> Scan Again
 					</button>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="QRcodeUploadModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-image"></i> Upload QR Code</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<input id="QRUploadFileInput" type="file" class="form-control">
+				<!-- <img id="QRPreviewImg" hidden> -->
+				<canvas id="QRImageCavnas"></canvas>
+				<p id="QRUploadOutput"></p>
 			</div>
 		</div>
 	</div>

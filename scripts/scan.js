@@ -79,7 +79,7 @@ $(function() {
 			let code = jsQR(imageData.data, imageData.width, imageData.height, {
 				inversionAttempts: 'dontInvert',
 			});
-			if (code) {
+			if(code) {
 				let loc = code.location;
 				drawQuad([loc.topLeftCorner, loc.topRightCorner,
 					loc.bottomRightCorner, loc.bottomLeftCorner], '#933');
