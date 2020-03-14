@@ -8,6 +8,9 @@
 
 - clicking checkbox doesn't toggle it, only label works
 
+- option to print them, textarea input or file upload and make barcodes for each one
+	set the margin and settings and either print or make a pdf or document or image for download
+
 ======== Maybe: ========
 
 - info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes
