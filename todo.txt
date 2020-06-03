@@ -55,6 +55,8 @@
 
 ======== Notes: ========
 
+- no wifi info in url param: security
+
 - if downloaded image doesn't work, sometimes right click copy and paste works to send qr codes
 
 - might need to run "py -m http.server 4000" to host on localhost: 4000 to allow camera permission 

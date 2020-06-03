@@ -35,7 +35,7 @@ $( ()=> {
 	$('#widthRange').val(w);
 	$('#heightRange').val(h);
 	$('#marginRange').val(m);
-	$('#sizeRange').val(z);
+	// $('#sizeRange').val(z);
 
 	if(i=='1') {
 		$('#QRcodeModal').modal('show');
@@ -93,17 +93,17 @@ $( ()=> {
 
 	$('#QRdownloadBtn').click( ()=> downloadImg(true) );
 
-	$('#QRcodeBtn').click(makeQRCode);
+	$('#QRcodeBtn').click( ()=> makeQRCode() ); // so it doesn't pass event param
 	makeQRCode();
 
 	// QR Size
 
-	$('#sizeRange').change( ()=> {
-		let size = parseInt($('#sizeRange').val() );
-		$('#sizeSpan').html(size);
-		$('#qrcode img').css('width', size + 'px');
-		$('#qrcode img').css('height', size + 'px');
-	}).change();
+	// $('#sizeRange').change( ()=> {
+	// 	let size = parseInt($('#sizeRange').val() );
+	// 	$('#sizeSpan').html(size);
+	// 	$('#qrcode img').css('width', size + 'px');
+	// 	$('#qrcode img').css('height', size + 'px');
+	// }).change();
 
 	// If on mobile, don't display right click alert
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -164,7 +164,7 @@ function addURLParams(isQR=false) {
 		'&w=' + $('#widthRange').val() +
 		'&h=' + $('#heightRange').val() +
 		'&m=' + $('#marginRange').val() +
-		'&z=' + $('#sizeRange').val() +
+		// '&z=' + $('#sizeRange').val() +
 		'&i=' + (isQR?'1':'0') // isQR (open modal by default)
 	);
 }
@@ -176,8 +176,8 @@ function removeURLParams() {
 function downloadImg(isQR=false) {
 	let link = document.createElement('a');
 	if(isQR) {
-		// link.href = $('#qrcode img');
-		link.href = $('#qrcode img').attr('src');
+		// link.href = $('#qrcode img').attr('src'); // img without padding
+		link.href = $('#QRCanvas')[0].toDataURL(); // canvas with padding
 		link.download = 'qrcode-' + $('#input').val() + '.png';
 	} else {
 		link.href = $('.output')[0].toDataURL();
@@ -207,13 +207,19 @@ function resetSettings() {
 // QR Code Stuff
 
 let qrcode;
-function makeQRCode() {
+function makeQRCode(text) {
+	text = text || $('#input').val();
+	console.log(text);
 	// https://github.com/davidshimjs/qrcodejs
 	if(qrcode) {
 		qrcode.clear();
-		qrcode.makeCode($('#input').val() );
+		qrcode.makeCode(text);
 	} else {
-		qrcode = new QRCode(document.getElementById('qrcode'), $('#input').val() );
+		qrcode = new QRCode(document.getElementById('qrcode'), text);
 	}
 	addURLParamsIfExist(true);
+
+	$('#qrcode img').on('load', ()=> {
+		drawWithPadding('qrcode', 'QRCanvas');
+	});
 }
