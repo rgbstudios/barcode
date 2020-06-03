@@ -31,6 +31,7 @@
 ======== Maybe: ========
 
 - wifi qr code: easy print option that opens it formatted to 8.5x11 or a4 paper, ready to print
+- checkboxes to display network name and/or pass
 
 - info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes
 
