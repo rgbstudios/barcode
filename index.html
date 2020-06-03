@@ -30,6 +30,7 @@
 <script src="scripts/scan.js"></script>
 <script src="scripts/upload.js"></script>
 <script src="scripts/wifi.js"></script>
+<script src="scripts/padding.js"></script>
 
 <script>
 //https://codelabs.developers.google.com/codelabs/add-to-home-screen/#5
@@ -230,10 +231,11 @@ if('serviceWorker' in navigator) {
 			</div>
 			<div class="modal-body">
 
-				<label>Size: <span id="sizeSpan"></span> </label>
-				<input id="sizeRange" type="range" class="form-control-range" min="25" max="400" step="25" value="200">
+<!-- 				<label>Size: <span id="sizeSpan"></span> </label>
+				<input id="sizeRange" type="range" class="form-control-range" min="25" max="400" step="25" value="200"> -->
 
-				<div id="qrcode"></div>
+				<div id="qrcode" class="d-none"></div>
+				<canvas id="QRCanvas"></canvas>
 
 				<button id="QRdownloadBtn" class="btn btn-dark">
 					<i class="fas fa-download"></i> Download
@@ -315,10 +317,10 @@ if('serviceWorker' in navigator) {
 				<p id="wifiQRErrorText" class="text-danger"></p>
 				<button id="wifiQRBtn" class="btn btn-dark my-2">Generate <i class="fas fa-arrow-right"></i></button>
 				<br>
-				<div id="WifiQR"></div>
+				<div id="WifiQR" class="d-none"></div>
+				<canvas id="wifiQRCanvas"></canvas>
 				<button id="wifiQRDownloadBtn" class="btn btn-dark my-2"><i class="fas fa-download"></i> Download</button>
 				<button id="wifiQRPrintBtn" class="btn btn-dark my-2"><i class="fas fa-print"></i> Print</button>
-				<canvas id="wifiQRCanvas"></canvas>
 			</div>
 		</div>
 	</div>

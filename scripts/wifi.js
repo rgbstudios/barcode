@@ -18,7 +18,8 @@ $( ()=> {
 	$('#wifiQRDownloadBtn').click( ()=> {
 		if(wifiQR) {
 			$('#wifiQRErrorText').html('');
-			downloadWifiImg($('#WifiQR img').attr('src'), 'wifi_qr');
+			// downloadWifiImg($('#WifiQR img').attr('src'), 'wifi_qr'); // img without padding
+			downloadWifiImg($('#wifiQRCanvas')[0].toDataURL(), 'wifi_qr'); // canvas with padding
 		} else {
 			$('#wifiQRErrorText').html('Create a QR code first. Click "Generate" when you\'re ready.');
 		}
@@ -60,19 +61,9 @@ function makeWifiQRCode(text) {
 		wifiQR = new QRCode(document.getElementById('WifiQR'), text);
 	}
 
-
-	// moving img to canvas in order to add padding
 	$('#WifiQR img').on('load', ()=> {
-		// 32px padding, 256px img
-		let canvas = document.getElementById('wifiQRCanvas');
-		canvas.width = 320; // 256 + 32*2
-		canvas.height = 320; // 256 + 32*2
-		let ctx = canvas.getContext('2d');
-		ctx.drawImage($('#WifiQR img')[0], 32, 32);
-
-		$('#WifiQR').hide();
+		drawWithPadding('WifiQR', 'wifiQRCanvas');
 	});
-
 }
 
 function downloadWifiImg(imgData, imgName) {
