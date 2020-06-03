@@ -5,7 +5,7 @@
 
 // https://github.com/davidshimjs/qrcodejs
 
-$(function() {
+$( ()=> {
 
 	// Handle URL Parameters
 
@@ -24,9 +24,9 @@ $(function() {
 	$('#input').val(q);
 
 	$('#format .dropdown-item').removeClass('active');
-	$('#format .dropdown-item').filter(function() {
-		return $(this).html().toLowerCase() == f.toLowerCase();
-	}).addClass('active');
+	$('#format .dropdown-item').filter( (idx, node)=>
+		$(node).html().toLowerCase() == f.toLowerCase()
+	).addClass('active');
 	$('#formatSpan').html($('#format .dropdown-item.active').html() );
 
 	$('#showLabel').prop('checked',t!='0').change();
@@ -44,7 +44,7 @@ $(function() {
 
 	// Listeners and Setup
 
-	makeCode(i=='1');
+	makeCode(i=='1'); // QR if i
 
 	$('#input').select();
 	$('#input').popover('hide');
@@ -54,11 +54,10 @@ $(function() {
 	$('input[type=range]').on('input',makeCode);
 	$('.color').colorPicker({opacity:false, renderCallback: makeCode});
 
-	$('#format .dropdown-item').click(function() {
+	$('#format .dropdown-item').click( (e)=> {
 		$('#format .dropdown-item').removeClass('active');
-		$(this).addClass('active');
-
-		$('#formatSpan').html($(this).html() );
+		$(e.currentTarget).addClass('active');
+		$('#formatSpan').html($(e.currentTarget).html() );
 		makeCode();
 	});
 
@@ -68,14 +67,15 @@ $(function() {
 		content: 'Copied link to your barcode',
 		placement: 'bottom'
 	});
-	$('#copyBtn').click(function() {
+	$('#copyBtn').click( ()=> {
 		makeCode();
 		copyUrl();
 		$('#copyBtn').popover('show');
-		setTimeout(function(){$('#copyBtn').popover('hide')}, 2000);
+		setTimeout( ()=> $('#copyBtn').popover('hide'), 2000);
+		$('#copyBtn').focus();
 	});
 
-	$('#downloadBtn').click( ()=> downloadImg(false) );
+	$('#downloadBtn').click( ()=> downloadImg(false) ); // param defaults to event otherwise
 	$('#resetBtn').click(resetSettings);
 
 	// QR Buttons
@@ -84,28 +84,26 @@ $(function() {
 		content: 'Copied link to your QR code',
 		placement: 'bottom'
 	});
-	$('#QRcopyBtn').click(function() {
+	$('#QRcopyBtn').click( ()=> {
 		copyUrl(true);
 		$('#QRcopyBtn').popover('show');
-		setTimeout(function(){$('#QRcopyBtn').popover('hide')}, 2000);
+		setTimeout( ()=> $('#QRcopyBtn').popover('hide'), 2000);
+		$('#QRcopyBtn').focus();
 	});
 
-	$('#QRdownloadBtn').click(function() {
-		downloadImg(true);
-	});
+	$('#QRdownloadBtn').click( ()=> downloadImg(true) );
 
 	$('#QRcodeBtn').click(makeQRCode);
 	makeQRCode();
 
 	// QR Size
 
-	$('#sizeRange').change(function() {
+	$('#sizeRange').change( ()=> {
 		let size = parseInt($('#sizeRange').val() );
 		$('#sizeSpan').html(size);
 		$('#qrcode img').css('width', size + 'px');
 		$('#qrcode img').css('height', size + 'px');
-	});
-	$('#sizeRange').change();
+	}).change();
 
 	// If on mobile, don't display right click alert
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -117,7 +115,6 @@ function makeCode(defaultQR=false) {
 	// bug fix for inputs that autoamtically pass their event as the first param
 
 	if(typeof defaultQR == 'object') defaultQR = false;
-	console.log(defaultQR);
 
 	$('#nodata').css('display','none');
 	$('.output').css('display','inline-block');
@@ -182,8 +179,7 @@ function downloadImg(isQR=false) {
 		// link.href = $('#qrcode img');
 		link.href = $('#qrcode img').attr('src');
 		link.download = 'qrcode-' + $('#input').val() + '.png';
-	}
-	else {
+	} else {
 		link.href = $('.output')[0].toDataURL();
 		link.download = 'barcode-' + $('#input').val() + '.png';
 	}
@@ -196,8 +192,7 @@ function copyUrl(isQR=false) {
 
 	// copy url
 	let tmp = $('<input type="text">').appendTo(document.body);
-	tmp.val(window.location.href);
-	tmp.select();
+	tmp.val(window.location.href).select();
 	document.execCommand('copy');
 	tmp.remove();
 }
@@ -217,8 +212,7 @@ function makeQRCode() {
 	if(qrcode) {
 		qrcode.clear();
 		qrcode.makeCode($('#input').val() );
-	}
-	else {
+	} else {
 		qrcode = new QRCode(document.getElementById('qrcode'), $('#input').val() );
 	}
 	addURLParamsIfExist(true);

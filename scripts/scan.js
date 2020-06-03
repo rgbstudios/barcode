@@ -1,7 +1,7 @@
 // modified code from https://cozmo.github.io/jsQR/
-// library is here: https://github.com/cozmo/jsQR
+// library: https://github.com/cozmo/jsQR
 
-$(function() {
+$( ()=> {
 	let found;
 	let streamObj;
 
@@ -27,7 +27,7 @@ $(function() {
 		found = false;
 
 		// Use facingMode: environment to attemt to get the front camera on phones
-		navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then(function(stream) {
+		navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } }).then( (stream)=> {
 			video.srcObject = stream;
 			video.setAttribute('playsinline', true); // tell iOS safari we don't want fullscreen
 			video.play();
@@ -39,9 +39,9 @@ $(function() {
 
 	function stopScan() {
 		const tracks = streamObj.getTracks();
-		tracks.forEach(function(track) {
-			track.stop();
-		});
+		tracks.forEach( (track)=>
+			track.stop()
+		);
 	}
 
 	function drawLine(begin, end, color) {
@@ -89,8 +89,7 @@ $(function() {
 				if(code.data.substring(0,4)=='http') {
 					// if website then display as clickable link
 					outputData.innerHTML = '<a href="' + code.data + '" target="_blank">' + code.data + '</a>';
-				}
-				else {
+				} else {
 					outputData.innerHTML = code.data;
 					// outputData.innerText = code.data;
 				}

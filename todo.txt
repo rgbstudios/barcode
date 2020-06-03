@@ -16,11 +16,23 @@
 - option to print them, textarea input or file upload and make barcodes for each one
 	set the margin and settings and either print or make a pdf or document or image for download
 
+- make dropdown button more accessible
+
+- focus close btn on modal open
+
+- links to share at bottom (similar to sharethis but less intrusive)
+
+======== Bugs: ========
+
+- color picker can be inaccessible
+
 ======== Maybe: ========
+
+- wifi qr code: easy print option that opens it formatted to 8.5x11 or a4 paper, ready to print
 
 - info modal about barcodes https://en.wikipedia.org/wiki/Barcode#Types_of_barcodes
 
-- info modal with link to github, version number, link to email, link to donate
+- info modal with link to github, version number, link to email, link to donate, by justin golden, (c)
 
 - remove option from url if it's already default option
 
@@ -29,6 +41,14 @@
 - history list of scanned codes below?
 
 - scan normal barcodes too?
+
+- info modal about qr codes and about wifi qr codes, how to use on phone
+
+======== Aesthetic: ========
+
+- try using tailwind css instead of bootstrap?
+
+- update range inputs
 
 ======== Notes: ========
 

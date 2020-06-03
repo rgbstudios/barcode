@@ -46,7 +46,7 @@ if('serviceWorker' in navigator) {
 <body>
 
 <h3>
-	Barcode <img src="img/icon.svg" width="48px" alt=""> Generator
+	Barcode <img id="logo" src="img/icon.svg" width="48px" alt=""> Generator
 </h3>
 
 <div class="input-group mt-3">
@@ -63,7 +63,7 @@ if('serviceWorker' in navigator) {
 <div class="row">
 	<div class="col-md-4 col-sm-6 p-2">
 		<div id="format" class="dropdown">
-			<label>Format: &nbsp;</label>
+			<label class="mr-1">Format:</label>
 			<button class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span id="formatSpan">CODE128</span>
 			</button>
