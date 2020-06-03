@@ -52,6 +52,8 @@
 
 ======== Notes: ========
 
+- if downloaded image doesn't work, sometimes right click copy and paste works to send qr codes
+
 - might need to run "py -m http.server 4000" to host on localhost: 4000 to allow camera permission 
 
 - could make accent color red (#933), use in focus/highlight color and other places, looks good with black
