@@ -1,5 +1,7 @@
 ======== To Do: ========
 
+- add margin to qr codes (currently only on barcodes, important for scanability)
+
 - Wifi QR code generator / reader
 - WIFI:T:WPA;S:networkname;P:passwordname;;
 
