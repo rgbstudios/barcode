@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Use Barcode Generator to generate a barcode for any text, then save or share the image">
-<meta name="keywords" content="barcode, barcode generator, generator, bar code, bar code generator, code generator, code creator, create">
+<meta name="keywords" content="barcode, barcode generator, generator, bar code, bar code generator, code generator, code creator, create, qr code, qr reader, qr code reader, qr upload, qr upload image, qr upload photo, qr scanner, qr code scanner, qr download, qr online, qr code online, qr free, qr code free">
 <link rel="icon" href="img/icon.png" type="image/png">
 <meta id="theme1" name="theme-color" content="#333">
 <meta id="theme2" name="msapplication-navbutton-color" content="#333">
@@ -29,6 +29,7 @@
 <script src="scripts/scripts.js"></script>
 <script src="scripts/scan.js"></script>
 <script src="scripts/upload.js"></script>
+<script src="scripts/wifi.js"></script>
 
 <script>
 //https://codelabs.developers.google.com/codelabs/add-to-home-screen/#5
@@ -137,6 +138,7 @@ if('serviceWorker' in navigator) {
 	</button>
 </div>
 
+<hr>
 <button id="QRcodeBtn" class="btn btn-dark" data-toggle="modal" data-target="#QRcodeModal">
 	<i class="fas fa-qrcode"></i> QR Code
 </button>
@@ -145,6 +147,10 @@ if('serviceWorker' in navigator) {
 </button>
 <button id="QRcodeUploadBtn" class="btn btn-dark my-1" data-toggle="modal" data-target="#QRcodeUploadModal">
 	<i class="fas fa-image"></i> Upload a QR Code
+</button>
+<hr>
+<button id="WifiQRBtn" class="btn btn-dark my-1" data-toggle="modal" data-target="#WifiQRModal">
+	<i class="fas fa-wifi"></i> Wifi QR Code
 </button>
 
 <div id="settingsModal" class="modal fade">
@@ -276,6 +282,43 @@ if('serviceWorker' in navigator) {
 				<!-- <img id="QRPreviewImg" hidden> -->
 				<canvas id="QRImageCavnas"></canvas>
 				<p id="QRUploadOutput"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="WifiQRModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-wifi"></i> Wifi QR Code </h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12 col-lg-4">
+						<label for="wifiAuth">Authentication</label>
+						<select id="wifiAuth" class="form-control">
+							<option selected value="WPA">WPA</option>
+							<option value="WEP">WEP</option>
+						</select>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<label for="wifiName">Network Name</label>
+						<input id="wifiName" class="form-control" type="text">
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<label for="wifiPass">Password</label>
+						<input id="wifiPass" class="form-control" type="password">
+					</div>
+				</div>
+				<p id="wifiQRErrorText" class="text-danger"></p>
+				<button id="wifiQRBtn" class="btn btn-dark my-2">Generate <i class="fas fa-arrow-right"></i></button>
+				<br>
+				<div id="WifiQR"></div>
+				<button id="wifiQRDownloadBtn" class="btn btn-dark my-2"><i class="fas fa-download"></i> Download</button>
+				<button id="wifiQRPrintBtn" class="btn btn-dark my-2"><i class="fas fa-print"></i> Print</button>
+				<canvas id="wifiQRCanvas"></canvas>
 			</div>
 		</div>
 	</div>

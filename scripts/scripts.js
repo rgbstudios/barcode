@@ -207,13 +207,14 @@ function resetSettings() {
 // QR Code Stuff
 
 let qrcode;
-function makeQRCode() {
+function makeQRCode(text) {
+	text = text || $('#input').val();
 	// https://github.com/davidshimjs/qrcodejs
 	if(qrcode) {
 		qrcode.clear();
-		qrcode.makeCode($('#input').val() );
+		qrcode.makeCode(text);
 	} else {
-		qrcode = new QRCode(document.getElementById('qrcode'), $('#input').val() );
+		qrcode = new QRCode(document.getElementById('qrcode'), text);
 	}
 	addURLParamsIfExist(true);
 }
