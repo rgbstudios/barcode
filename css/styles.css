@@ -17,7 +17,7 @@ body {
 	width: 90% !important;
 	max-width: none;
 }
-#downloadLink, #nodata {
+#nodata {
 	display: none;
 }
 label {

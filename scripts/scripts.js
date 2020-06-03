@@ -75,7 +75,7 @@ $(function() {
 		setTimeout(function(){$('#copyBtn').popover('hide')}, 2000);
 	});
 
-	$('#downloadBtn').click(downloadImg);
+	$('#downloadBtn').click( ()=> downloadImg(false) );
 	$('#resetBtn').click(resetSettings);
 
 	// QR Buttons
@@ -177,14 +177,15 @@ function removeURLParams() {
 }
 
 function downloadImg(isQR=false) {
-	let link = document.getElementById('downloadLink');
+	let link = document.createElement('a');
 	if(isQR) {
-		link.href = $('#qrcode img');
+		// link.href = $('#qrcode img');
+		link.href = $('#qrcode img').attr('src');
 		link.download = 'qrcode-' + $('#input').val() + '.png';
 	}
 	else {
 		link.href = $('.output')[0].toDataURL();
-		link.download = 'barcode-' + $('#input').val() + '.png';		
+		link.download = 'barcode-' + $('#input').val() + '.png';
 	}
 
 	link.click();
