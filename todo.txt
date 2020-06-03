@@ -1,5 +1,8 @@
 ======== To Do: ========
 
+- Wifi QR code generator / reader
+- WIFI:T:WPA;S:networkname;P:passwordname;;
+
 - make arrow keys work with dropdown
 
 - check if color is valid first
