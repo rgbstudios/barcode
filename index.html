@@ -315,12 +315,46 @@ if('serviceWorker' in navigator) {
 					</div>
 				</div>
 				<p id="wifiQRErrorText" class="text-danger"></p>
+
+				<details>
+					<summary><i class="fas fa-cog"></i> Print Settings</summary>
+					<div class="custom-control custom-checkbox">
+						<input id="showWifiNetwork" type="checkbox" class="custom-control-input">
+						<label class="custom-control-label" for="showWifiNetwork">Show Wifi Network</label>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input id="showWifiPass" type="checkbox" class="custom-control-input">
+						<label class="custom-control-label" for="showWifiPass">Show Wifi Password</label>
+					</div>
+				</details>
+
 				<button id="wifiQRBtn" class="btn btn-dark my-2">Generate <i class="fas fa-arrow-right"></i></button>
 				<br>
 				<div id="WifiQR" class="d-none"></div>
 				<canvas id="wifiQRCanvas"></canvas>
 				<button id="wifiQRDownloadBtn" class="btn btn-dark my-2"><i class="fas fa-download"></i> Download</button>
 				<button id="wifiQRPrintBtn" class="btn btn-dark my-2"><i class="fas fa-print"></i> Print</button>
+
+				<button id="WifiHelpBtn" class="btn btn-dark my-2" data-toggle="modal" data-target="#WifiHelpModal">
+				<i class="fas fa-question"></i> Help Scanning
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="WifiHelpModal" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title"><i class="fas fa-question"></i> Help Scanning Wifi Codes</h3>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<img src="img/wifi-scan-circle.jpg" style="width: 100%; max-width: 512px;">
+				<br>
+				<br>
+				<p>Click the icon circled in red above to scan a wifi code and instantly connect.</p>
 			</div>
 		</div>
 	</div>

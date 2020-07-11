@@ -1,3 +1,8 @@
+- - - - - - - - - - - - - - - -
+Misc To Do:
+- add padding to all qr codes
+- - - - - - - - - - - - - - - -
+
 ======== To Do: ========
 
 - add margin to qr codes (currently only on barcodes, important for scanability)

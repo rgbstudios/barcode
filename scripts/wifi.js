@@ -37,7 +37,31 @@ $( ()=> {
 			}
 		}
 		let win = window.open('','','');
-		win.document.write(`${$('#WifiQR').html()}`);
+		
+		win.document.write(`<style type="text/css">
+			* {
+				text-align: center;
+				font: 32px Arial;
+				line-height: 2.5rem;
+			}
+			b {
+				font-weight: bold; /*idk...*/
+			}
+			img:not(.icon) {
+				padding: 0.5rem;
+				margin: 1rem;
+				border: 4px solid black;
+				box-shadow: 0.5rem 0.5rem #999;
+			}
+		</style>`);
+		win.document.write(`<b>Scan to automatically connect to our Wifi <img class="icon" src="img/wifi-solid.svg" width="32px"></b> <br>`);
+		win.document.write(`${$('#WifiQR').html().replace('block','inline')}`);
+		if($('#showWifiNetwork').is(':checked') ) {
+			win.document.write(`<br><b>Network:</b> ${$('#wifiName').val()}`);
+		}
+		if($('#showWifiPass').is(':checked') ) {
+			win.document.write(`<br><b>Password:</b> ${$('#wifiPass').val()}`);
+		}
 		win.document.close();
 
 		win.addEventListener('load', ()=> {
